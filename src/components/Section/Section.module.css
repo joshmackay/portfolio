@@ -1,0 +1,15 @@
+.section{
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0;
+}
+
+.innerWrapper{
+  
+}
+
+.fullHeight{
+  min-height: 100vh;
+  padding: 0;
+}
