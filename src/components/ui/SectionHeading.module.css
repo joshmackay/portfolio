@@ -1,0 +1,23 @@
+.h2{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--lightest-slate);
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.h2::before{
+  counter-increment: section 1;
+  content: "0" counter(section) ".";
+  color: var(--green);
+}
+
+.h2::after{
+  content: "";
+  display: block;
+  position: relative;
+  width: 300px;
+  height: 1px;
+  background-color: var(--lightest-navy)
+}

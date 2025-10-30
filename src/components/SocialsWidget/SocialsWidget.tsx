@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import InfoWidget from './InfoWidget'
 import {GitHub, Icon, Linkedin} from 'react-feather'
+import ElementAnimation from './ElementAnimation';
 
 type Social = {
   icon: Icon;
@@ -27,9 +28,11 @@ export default function SocialsWidget({side}: Props) {
     <InfoWidget side={side} >
       {
         socialsList.map((icon, i) => (
-          <a key={i} href={icon.link}>
-            <icon.icon width={24} height={48} />
-          </a>
+          <ElementAnimation key={i}>
+            <a  href={icon.link} target='_blank'>
+              <icon.icon width={24} height={48} />
+            </a>
+          </ElementAnimation>
         ))
       }
     </InfoWidget>
