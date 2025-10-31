@@ -16,6 +16,15 @@
   --pink: #f57dff;
   --blue: #57cbff;
   
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+  
   --border-radius: 4px;
 }
 
@@ -24,6 +33,18 @@
     --background: var(--navy);
     --foreground: var(--lightest-slate);
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: var(--lightest-slate);
+  line-height: 1.1;
 }
 
 html,
