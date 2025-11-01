@@ -1,16 +1,17 @@
 import { ProjectDetail } from '@/types/ProjectDetail'
-import Image from 'next/image'
 import React from 'react'
 import styles from './FeaturedProject.module.css'
 import { GitHub, Icon, Link } from 'react-feather'
+import OverlayedImage from '@/components/animations/OverlayedImage'
+import Scale from '@/components/animations/Scale'
 type Props = { projectDetail: ProjectDetail }
 
 export default function FeaturedProject({projectDetail: {id, image, name, description, tools, links}}: Props) {
   return (
     <div className={styles.container}>
-      <div className={styles.imageWrapper}>
-        <img className={styles.image} src={image} alt={''}  />
-      </div>
+
+          <OverlayedImage className={styles.imageContainer} imgSrc={image} />
+
       
       <div className={styles.details}>
         <p className={styles.featuredText}>Featured Project</p>

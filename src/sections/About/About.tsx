@@ -6,6 +6,7 @@ import styles from './About.module.css'
 import * as motion from "motion/react-client"
 import { Variants } from 'motion'
 import SectionHeading from '@/components/ui/SectionHeading'
+import OverlayedImage from '@/components/animations/OverlayedImage'
 
 export default function About()
 {
@@ -74,11 +75,7 @@ export default function About()
                 animate={imgHovered ? "animate" : "initial"}>
                 </motion.span>
                 
-                <Image 
-                className={styles.image} 
-                src={'/Untitled.png'} 
-                alt={''} 
-                fill={true} />
+                <OverlayedImage imgSrc={'/Untitled.png'} />
                   
             </motion.div>
             
