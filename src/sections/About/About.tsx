@@ -14,18 +14,13 @@ export default function About()
   
   const imgVariants: Variants = {
     initial: { x: 0, y: 0, scale: 1 },
-    animate: { x: -4, y: -4, scale: 1.02, transition: { type: "spring", stiffness: 300, damping: 22 } }
+    animate: { x: -4, y: -4, scale: 1.02, transition: { type: "tween" }}
   };
 
   const borderVariants: Variants = {
     initial: { x: 0, y: 0 },
-    animate: { x: 4, y: 4, transition: { type: "spring", stiffness: 300, damping: 22 } }
+    animate: { x: 4, y: 4, transition: { type: "tween" } }
   };
-  
-  const imageOverlayVariants: Variants = {
-    initial: { opacity: 1 },
-    animate: { opacity: 0 }
-  }
   
   return (
     <Section fullHeight={false} >
@@ -67,19 +62,18 @@ export default function About()
               onHoverEnd={() => setImgHovered(false)}
               variants={imgVariants}
               initial="initial"
-              animate={imgHovered ? "animate" : "initial"}>
-                <motion.span 
-                className={styles.imageOverlay} 
-                variants={imageOverlayVariants}
-                initial="initial"
-                animate={imgHovered ? "animate" : "initial"}>
-                </motion.span>
+              animate={imgHovered ? "animate" : "initial"}
+            >
+
                 
-                <OverlayedImage imgSrc={'/Untitled.png'} />
-                  
+              <OverlayedImage imgSrc={'/Untitled.png'} className={undefined} />
+              <motion.span 
+              className={styles.imageBorder} 
+              variants={borderVariants} 
+              initial="initial" 
+              animate={imgHovered ? "animate" : "initial"} />
             </motion.div>
             
-            <motion.span className={styles.imageBorder} initial="initial" variants={borderVariants} animate={imgHovered ? "animate" : "initial"}></motion.span>
             
           </div>
             

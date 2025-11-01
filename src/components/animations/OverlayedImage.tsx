@@ -7,10 +7,6 @@ type Props = {
   className: unknown;
 }
 
-const imageWrapperVariants: Variants = {
-  rest: { scale: 1 },
-  hover: { scale: 1.1 }
-}
 
 const imageOverlayVariants: Variants = {
   rest: { opacity: 1 },
@@ -20,15 +16,14 @@ const imageOverlayVariants: Variants = {
 export default function OverlayedImage({imgSrc, className}: Props) {
   
   return (
-    <>
-        <motion.div
-        variants={imageOverlayVariants}
-        className={styles.imageOverlay}
-        initial="rest"
-        whileHover="hover"
- >
+    <div className={styles.wrapper}>
+      <motion.div
+      variants={imageOverlayVariants}
+      className={styles.imageOverlay}
+      initial="rest"
+      whileHover="hover">
       </motion.div>
       <Image className={styles.image} src={imgSrc} alt={''} fill={true} />
-    </>
+    </div>
   )
 }
