@@ -1,10 +1,4 @@
-.imageOverlayWrapper {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  overflow: hidden;
-  
-}
+
 
 .imageOverlay {
   position: absolute;

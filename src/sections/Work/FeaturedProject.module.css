@@ -65,7 +65,7 @@
   z-index: 0;
   max-height: 350px;
   aspect-ratio: 16/9;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 4px;
   background-color: var(--navy);
 }

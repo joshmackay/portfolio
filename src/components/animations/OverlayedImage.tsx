@@ -20,14 +20,8 @@ const imageOverlayVariants: Variants = {
 export default function OverlayedImage({imgSrc, className}: Props) {
   
   return (
-    <motion.div 
-      className={`${styles.imageOverlayWrapper} ${className}`}
-      transition={{type: 'tween'}}
-      variants={imageWrapperVariants}
-      whileHover="hover"
-      initial="rest"
-    >
-      <motion.div
+    <>
+        <motion.div
         variants={imageOverlayVariants}
         className={styles.imageOverlay}
         initial="rest"
@@ -35,8 +29,6 @@ export default function OverlayedImage({imgSrc, className}: Props) {
  >
       </motion.div>
       <Image className={styles.image} src={imgSrc} alt={''} fill={true} />
-
-
-    </motion.div>
+    </>
   )
 }
