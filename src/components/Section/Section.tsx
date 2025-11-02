@@ -11,7 +11,7 @@ export default function Section({ children, className, fullHeight }: Props) {
   console.log(styles)
   return (
     <section className={`${styles.section ?? ""} ${className ?? ""} ${fullHeight ? styles.fullHeight : ""}`}>
-      <div className={`${styles.innerWrapper ?? ""}`}>{children}</div>
+      {children}
     </section>
   )
 }

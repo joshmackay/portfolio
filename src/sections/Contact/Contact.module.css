@@ -1,0 +1,30 @@
+.content {
+  text-align: center;
+}
+
+.contactSection{
+  max-width: 600px;
+  margin: 0 auto 100px;
+}
+
+.heading{
+  color: var(--green);
+  font-size: var(--fz-lg);
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.heading::after{
+  content: none;
+}
+
+.subHeading {
+  font-size: 44px;
+  font-weight: bold;
+  color: var(--lightest-slate);
+  margin-bottom: 2rem;
+}
+
+.description{
+  margin-bottom: 3rem;
+}

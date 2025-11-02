@@ -1,12 +1,48 @@
+'use client'
 import React from 'react'
 import Nav from '../../components/Nav/Nav'
-import Image from 'next/image'
 import styles from './Header.module.css'
+import Logo from '@/components/Logo/Logo'
+import Hex from '@/components/Logo/Hex'
+import * as motion from 'motion/react-client'
+import { Menu, X } from 'react-feather'
+
 export default function Header() {
+  
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  
+  React.useEffect(() => {
+    const handleResize = () => {
+      if(window.innerWidth >= 769 && menuOpen){
+        setMenuOpen(false);
+      }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize',handleResize);
+  })
+  
   return (
     <header className={styles.header}>
-      <Image className={styles.headerLogo} src={'/vercel.svg'} alt={''} width={'48'} height={'48'}></Image>
-      <Nav />
+      <div className={styles.logoContainer}>
+        <Hex className={styles.hex} />
+        
+        <motion.div className={styles.animateLogoWrapper}
+        whileHover={{ x: -4, y: -4 }}>
+          <Logo className={styles.logo} />
+        </motion.div>
+        
+      </div>
+      <Nav className={styles.nav} />
+      <aside className={`${styles.mobileMenu} ${menuOpen ? styles.open : styles.closed}`}>
+        <Nav className={styles.mobileNav} />
+      </aside>
+      <Menu 
+        onClick={() => setMenuOpen(true)} 
+        className={`${styles.menuButton} ${menuOpen ? styles.closed : styles.open}`}   />
+      <X 
+        onClick={() => setMenuOpen(false)} 
+        className={`${styles.closeButton} ${menuOpen ? styles.open : styles.closed}`}/>
     </header>
   )
 }

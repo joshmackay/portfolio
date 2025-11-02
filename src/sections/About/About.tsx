@@ -23,8 +23,8 @@ export default function About()
   };
   
   return (
-    <Section fullHeight={false} >
-      <SectionHeading>About Me</SectionHeading>
+    <Section className={styles.section} fullHeight={false} >
+      <SectionHeading useCount={true}>About Me</SectionHeading>
       <div className={styles.content}>
         <div className={styles.textContent}>
           <p>

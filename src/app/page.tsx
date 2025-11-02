@@ -6,6 +6,9 @@ import EmailWidget from "@/components/SocialsWidget/EmailWidget";
 import About from "@/sections/About/About";
 import Work from "@/sections/Work/Work";
 import Experience from "@/sections/Experience/Experience";
+import OtherProjects from "@/sections/OtherProjects/OtherProjects";
+import Contact from "@/sections/Contact/Contact";
+import Footer from "@/sections/Footer/Footer";
 
 export default function Home() {
   return (
@@ -18,9 +21,11 @@ export default function Home() {
          <About />
          <Experience />
          <Work />
+         <OtherProjects />
+         <Contact />
       </main>
       
-      <footer></footer>
+      <Footer></Footer>
     </div>
   );
 }

@@ -19,7 +19,8 @@ const projectDetails: ProjectDetail[] = [
       "React",
       "TypeScript",
       "NextJS",
-      "CSS Modules",
+      "Motion",
+      "CSS-Modules",
       "Vercel"
     ],
     links: {

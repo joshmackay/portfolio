@@ -1,6 +1,19 @@
 .nav{
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
   gap: 2rem;
 }
 
+.nav ol{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav ol li::before{
+  counter-increment: nav 1;
+  content: "0" counter(nav) ".";
+  color: var(--green);
+  margin-right: 5px;
+}

@@ -1,3 +1,7 @@
+.section{
+  max-width: 900px;
+}
+
 .content{
   display: flex;
   gap: 4rem
@@ -46,7 +50,7 @@
   border: 2px solid var(--green);
   top: 14px;
   left: 14px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .textContent p{

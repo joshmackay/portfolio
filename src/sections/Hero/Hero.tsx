@@ -6,7 +6,7 @@ import Button from '@/components/Button/Button'
 
 export default function Hero() {
   return (
-    <Section fullHeight={true} >
+    <Section className={styles.section} fullHeight={true} >
       <p className={styles.hi}>Hi, my name is</p>
       <h1 className={styles.h1}>Josh MacKay.</h1>
       <h2 className={styles.h2}>I build things for the web.</h2>
