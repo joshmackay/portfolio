@@ -1,3 +1,4 @@
+'use client'
 import styles from "./page.module.css";
 import Header from "@/sections/Header/Header";
 import Hero from "@/sections/Hero/Hero";
@@ -9,23 +10,35 @@ import Experience from "@/sections/Experience/Experience";
 import OtherProjects from "@/sections/OtherProjects/OtherProjects";
 import Contact from "@/sections/Contact/Contact";
 import Footer from "@/sections/Footer/Footer";
+import MenuOpenProvider, { MenuOpenContext } from "@/context/MenuOpenProvider";
+import React, { useContext } from "react";
 
 export default function Home() {
+  
+  const context = React.useContext(MenuOpenContext);
+  if (!context)
+  {
+    throw new Error("useContext(MenuOpenContext) must be used inside a MenuOpenProvider");
+  }
+  const { menuOpen } = context;
+  
   return (
-    <div className={styles.page}>
-      <Header />
-      <SocialsWidget side={"left"} />
-      <EmailWidget side="right" />
-      <main className={styles.main}>
-         <Hero />
-         <About />
-         <Experience />
-         <Work />
-         <OtherProjects />
-         <Contact />
-      </main>
-      
-      <Footer></Footer>
-    </div>
+      <div className={`${styles.page} `}>
+        <Header />
+        <SocialsWidget  side={"left"} />
+        <EmailWidget  side="right" />
+      <main className={`${styles.main} `}>
+        <div className={`${menuOpen ? styles.blur : undefined}`}>
+          <Hero />
+          <About />
+          <Experience />
+          <Work />
+          <OtherProjects />
+          <Contact />
+          
+        </div>
+        </main>
+        <Footer></Footer>
+      </div>
   );
 }

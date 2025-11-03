@@ -8,11 +8,12 @@ const email: string = 'joshwademackay@gmail.com';
 
 type Props = {
   side: "left" | "right";
+  className?: string;
 }
 
-export default function SocialsWidget({side}: Props) {
+export default function SocialsWidget({side, className}: Props) {
   return (
-    <InfoWidget side={side} >
+    <InfoWidget className={className ?? undefined} side={side} >
       {
         <ElementAnimation>
           <a className={styles.email} href={`mailto:${email}`}>{email}</a>

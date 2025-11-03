@@ -26,6 +26,8 @@
   --fz-heading: 32px;
   
   --border-radius: 4px;
+  
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,6 +55,8 @@ body {
   overflow-x: hidden;
   
   counter-reset: section nav;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -61,6 +65,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 * {

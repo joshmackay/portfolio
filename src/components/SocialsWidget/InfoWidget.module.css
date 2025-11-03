@@ -24,3 +24,9 @@
   right: 40px;
   left: auto;
 }
+
+@media (max-width: 769px) {
+  .infoWrapper {
+    display: none;
+  }
+}

@@ -1,20 +1,20 @@
 .section{
-  width: 100%;
+
 }
 
 .hi {
-  font-size: 1.2rem;
+  font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
   color: var(--green);
   margin: 0 0 30px 4px;
 }
 
 .h1 {
-  font-size: clamp(40px, 8vw, 80px);
+      font-size: clamp(40px, 8vw, 80px);
 }
 
 .h2 {
   margin: 0;
-  font-size: clamp(40px, 8vw, 70px);
+  font-size: clamp(40px, 8vw, 80px);
   color: var(--slate);
   line-height: 1;
 }
