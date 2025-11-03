@@ -8,7 +8,7 @@ const email: string = "joshwmackay@gmail.com"
 
 export default function Contact() {
   return (
-    <Section className={styles.contactSection} fullHeight={false}  >
+    <Section id="contact" className={styles.contactSection} fullHeight={false}  >
       <div className={styles.content}>
         <SectionHeading className={styles.heading} useCount={true}>What&apos;s Next?</SectionHeading>
         <p className={styles.subHeading}>Get In Touch</p>

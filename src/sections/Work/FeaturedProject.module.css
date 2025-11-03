@@ -42,7 +42,7 @@
 .name{
   color: var(--lightest-slate);
   margin-bottom: 25px;
-  font-size: var(--fz-xl);
+      font-size: clamp(24px, 5vw, 28px);
   
 }
 
@@ -68,8 +68,7 @@
   grid-area: 1/-1/-1/-8;
   position: relative;
   z-index: 0;
-  max-height: 400px;
-  aspect-ratio: 16/9;
+
   overflow: visible;
   border-radius: 4px;
   background-color: var(--navy);
@@ -87,7 +86,7 @@
     }
   
   .details{
-    padding: 4rem 2rem;
+    padding: 40px 40px 30px;
   }
   
   .details, 
@@ -100,7 +99,12 @@
   }
   
   .imageContainer{
-    opacity: 0.25;
+    opacity: 0.1;
+    object-fit: cover;
+    width: auto;
+    height: 100%;
+    filter: grayscale(100%) contrast(1) brightness(50%);
+    height: 100%;
   }
   
   .container:nth-of-type(odd) .details ul {
@@ -114,6 +118,8 @@
     margin-bottom: 25px;
   }
   
-  
+  .name{
+    color: white;
+  }
 
 }

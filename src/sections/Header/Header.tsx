@@ -31,8 +31,8 @@ export default function Header() {
   
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.logoContainer}>
+      <header  className={styles.header}>
+        <div onClick={() => window.location.href = "/"} className={styles.logoContainer}>
           <Hex className={styles.hex} />
           
           <motion.div className={styles.animateLogoWrapper}

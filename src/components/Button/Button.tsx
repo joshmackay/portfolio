@@ -9,14 +9,16 @@ type Props = {
   href: string;
   openNewPage: boolean;
   size: "small" | "large";
+  onClick?: () => void;
 }
 
-export default function Button({children, className, href, openNewPage, size}: Props) {
+export default function Button({children, className, href, openNewPage, size, onClick}: Props) {
   
   return (
       <a 
-      href={href} 
-      target={openNewPage ? "_blank" : undefined} 
+      href={href}
+      
+      onClick={onClick }
       className={`${styles.styledButton} ${styles[size]} ${className ?? ""}`}
       >
         {children}

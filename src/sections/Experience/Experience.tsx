@@ -102,7 +102,7 @@ export default function Experience()
   const [hoveredNavId, setHoveredNavId] = React.useState<number | null>(null);
   
   return (
-    <Section className={styles.section} fullHeight={false} >
+    <Section id="experience" className={styles.section} fullHeight={false} >
       <SectionHeading useCount={true}>Where I&apos;ve Worked</SectionHeading>
       <div className={styles.content}>
         <motion.div layoutRoot className={styles.buttonList} onMouseLeave={() => setHoveredNavId(null)}> 

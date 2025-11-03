@@ -22,7 +22,7 @@ export default function About()
   };
   
   return (
-    <Section className={styles.section} fullHeight={false} >
+    <Section id="about" className={styles.section} fullHeight={false} >
       <SectionHeading useCount={true}>About Me</SectionHeading>
       <div className={styles.content}>
         <div className={styles.left}>
@@ -65,7 +65,7 @@ export default function About()
             >
 
                 
-              <OverlayedImage width={280} height={280} imgSrc={'/Untitled.png'} className={styles.image} />
+              <OverlayedImage useOverlay={true} width={280} height={280} imgSrc={'/Untitled.png'} className={styles.image} />
               <motion.span 
               className={styles.imageBorder} 
               variants={borderVariants} 

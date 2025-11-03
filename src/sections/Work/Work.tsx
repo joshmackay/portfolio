@@ -67,7 +67,7 @@ const projectDetails: ProjectDetail[] = [
 export default function Work(){
 
   return (
-    <Section className={styles.section} fullHeight={false} >
+    <Section id="work" className={styles.section} fullHeight={false} >
       <SectionHeading useCount={true}>Some Things I&apos;ve Built</SectionHeading>
       <div>
         {projectDetails.map(project => {

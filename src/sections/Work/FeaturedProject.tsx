@@ -3,14 +3,23 @@ import React from 'react'
 import styles from './FeaturedProject.module.css'
 import { GitHub, Icon, Link } from 'react-feather'
 import OverlayedImage from '@/components/animations/OverlayedImage'
-import Scale from '@/components/animations/Scale'
 import { motion } from 'motion/react'
 type Props = { projectDetail: ProjectDetail }
 
 export default function FeaturedProject({projectDetail: {id, image, name, description, tools, links}}: Props) {
   
   const [imageHovered, setImageHovered] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() =>
+  {
+    const check = () => window.innerWidth <= 768 ? setIsMobile(true) : setIsMobile(false);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
   
+  console.log(isMobile)
   return (
     <div className={styles.container}>
       
@@ -20,10 +29,11 @@ export default function FeaturedProject({projectDetail: {id, image, name, descri
         onHoverEnd={() => setImageHovered(false)}
         whileHover={{
           zIndex: 10,
-          transition: {duration: 0.8}}}>
-        <Scale>
-          <OverlayedImage width={400} height={400} className={styles.imageContainer} imgSrc={image || ""} />
-        </Scale>
+          scale: 1.1,
+          transition: {
+            scale: {duration: 0.5},
+            zIndex: {duration: 0.8}}}}>
+        <OverlayedImage useOverlay={!isMobile} width={500} height={320}  imgSrc={image || ""} />
       </motion.div>
 
       

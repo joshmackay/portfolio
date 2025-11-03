@@ -7,6 +7,7 @@ type Props = {
   className?: string;
   width: number;
   height: number;
+  useOverlay?: boolean
 }
 
 
@@ -15,19 +16,21 @@ const imageOverlayVariants: Variants = {
   hover: { opacity: 0 }
 }
 
-export default function OverlayedImage({imgSrc, className, width, height}: Props) {
+export default function OverlayedImage({imgSrc, className, width, height, useOverlay}: Props) {
   const aspectRatio = width/height;
 
   return (
     <div 
       className={styles.wrapper}
       style={{ aspectRatio}}>
-      <motion.div
-      variants={imageOverlayVariants}
-      className={styles.imageOverlay}
-      initial="rest"
-      whileHover="hover">
-      </motion.div>
+        {useOverlay && 
+          <motion.div
+          variants={imageOverlayVariants}
+          className={useOverlay && styles.imageOverlay}
+          initial="rest"
+          whileHover="hover">
+          </motion.div>
+        }
       <Image 
       fill 
       className={`${styles.image} ${className ||undefined}`} 

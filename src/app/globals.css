@@ -52,6 +52,7 @@ h6 {
 }
 html{
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 /* --- Firefox --- */
@@ -112,7 +113,10 @@ p{
   color: var(--light-slate);
 }
 
-
+img{
+  z-index: 1;
+  object-fit: cover;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

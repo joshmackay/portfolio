@@ -15,7 +15,7 @@ export default function Hero() {
         creating smooth user experiences, and working directly with clients to bring ideas to life.
       </p>
       <div className={styles.heroButtonWrapper}>
-        <Button href={''} openNewPage={false} size={'large'} >Click Me!</Button>
+        <Button href={'#contact'} openNewPage={false} size={'large'} >Let&apos;s Chat!</Button>
         
       </div>
     </Section>
