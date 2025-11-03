@@ -4,7 +4,9 @@ import Image from 'next/image'
 import { motion, Variants } from 'motion/react'
 type Props = {
   imgSrc: string
-  className: unknown;
+  className?: string;
+  width: number;
+  height: number;
 }
 
 
@@ -13,17 +15,23 @@ const imageOverlayVariants: Variants = {
   hover: { opacity: 0 }
 }
 
-export default function OverlayedImage({imgSrc, className}: Props) {
-  
+export default function OverlayedImage({imgSrc, className, width, height}: Props) {
+  const aspectRatio = width/height;
+
   return (
-    <div className={styles.wrapper}>
+    <div 
+      className={styles.wrapper}
+      style={{ aspectRatio}}>
       <motion.div
       variants={imageOverlayVariants}
       className={styles.imageOverlay}
       initial="rest"
       whileHover="hover">
       </motion.div>
-      <Image className={styles.image} src={imgSrc} alt={''} fill={true} />
+      <Image 
+      fill 
+      className={`${styles.image} ${className ||undefined}`} 
+      src={imgSrc} alt={''} />
     </div>
   )
 }

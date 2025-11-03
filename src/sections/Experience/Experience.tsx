@@ -103,7 +103,7 @@ export default function Experience()
   
   return (
     <Section className={styles.section} fullHeight={false} >
-      <SectionHeading>About Me</SectionHeading>
+      <SectionHeading useCount={true}>Where I&apos;ve Worked</SectionHeading>
       <div className={styles.content}>
         <motion.div layoutRoot className={styles.buttonList} onMouseLeave={() => setHoveredNavId(null)}> 
 
@@ -114,6 +114,7 @@ export default function Experience()
                   key={i} 
                   onMouseEnter={() => setHoveredNavId(job.id)} 
                   onClick={() => setSelectedJobIndex(i)}
+                  className={selectedJobIndex === i ? styles.selected : ""}
                   style={{
                     color: hoveredNavId === job.id ? "var(--green)" : "",
                   }}>

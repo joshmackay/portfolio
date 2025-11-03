@@ -1,16 +1,20 @@
 .h2{
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   color: var(--lightest-slate);
-  font-size: 2rem;
+  font-size: clamp(26px, 5vw, var(--fz-heading));
   margin-bottom: 3rem;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .h2::before{
   counter-increment: section 1;
   content: "0" counter(section) ".";
   color: var(--green);
+  font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+  align-self: center;
 }
 
 .h2::after{
@@ -25,4 +29,16 @@
 .noCount::before{
   content: "";
   counter-increment: none;
+}
+
+@media (max-width: 1080px){
+  .h2::after{
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .h2::after {
+    width: 100%;
+  }
 }

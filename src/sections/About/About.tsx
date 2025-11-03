@@ -1,7 +1,6 @@
 'use client'
 import Section from '@/components/Section/Section'
 import React from 'react'
-import Image from 'next/image'
 import styles from './About.module.css'
 import * as motion from "motion/react-client"
 import { Variants } from 'motion'
@@ -26,7 +25,7 @@ export default function About()
     <Section className={styles.section} fullHeight={false} >
       <SectionHeading useCount={true}>About Me</SectionHeading>
       <div className={styles.content}>
-        <div className={styles.textContent}>
+        <div className={styles.left}>
           <p>
             Hi, I’m Josh — a full-stack developer who loves creating things for the web.
             I enjoy working with people just as much as writing code, for me, building is about solving real problems with others.
@@ -54,7 +53,7 @@ export default function About()
           </ul>
         </div>
         
-        <div>
+        <div className={styles.right}>
           <div className={styles.wrapper}>
             <motion.div 
               className={styles.imageWrapper}
@@ -66,7 +65,7 @@ export default function About()
             >
 
                 
-              <OverlayedImage imgSrc={'/Untitled.png'} className={undefined} />
+              <OverlayedImage width={280} height={280} imgSrc={'/Untitled.png'} className={styles.image} />
               <motion.span 
               className={styles.imageBorder} 
               variants={borderVariants} 

@@ -80,3 +80,40 @@
 }
 
 
+@media (max-width: 768px){
+  
+  .container, .container:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  
+  .details{
+    padding: 4rem 2rem;
+  }
+  
+  .details, 
+  .imageContainer, 
+  .container:nth-of-type(odd) .imageContainer,
+  .container:nth-of-type(odd) .details{
+    grid-column: 1 / -1;
+    text-align: left;
+    align-items: flex-start;
+  }
+  
+  .imageContainer{
+    opacity: 0.25;
+  }
+  
+  .container:nth-of-type(odd) .details ul {
+    justify-content: flex-start;
+  }
+  
+  .descriptionWrapper {
+    background-color: transparent;
+    padding: 1rem 0;
+    border-radius: none;
+    margin-bottom: 25px;
+  }
+  
+  
+
+}

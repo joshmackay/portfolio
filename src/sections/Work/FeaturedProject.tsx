@@ -22,7 +22,7 @@ export default function FeaturedProject({projectDetail: {id, image, name, descri
           zIndex: 10,
           transition: {duration: 0.8}}}>
         <Scale>
-          <OverlayedImage className={styles.imageContainer} imgSrc={image} />
+          <OverlayedImage width={400} height={400} className={styles.imageContainer} imgSrc={image || ""} />
         </Scale>
       </motion.div>
 

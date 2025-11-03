@@ -68,7 +68,7 @@ export default function Work(){
 
   return (
     <Section className={styles.section} fullHeight={false} >
-      <SectionHeading>Some Things I&apos;ve Built</SectionHeading>
+      <SectionHeading useCount={true}>Some Things I&apos;ve Built</SectionHeading>
       <div>
         {projectDetails.map(project => {
           return <FeaturedProject key={project.id} projectDetail={project} />

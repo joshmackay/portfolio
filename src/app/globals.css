@@ -28,6 +28,8 @@
   --border-radius: 4px;
   
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+  font-family: var(--font-roboto), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,6 +50,31 @@ h6 {
   color: var(--lightest-slate);
   line-height: 1.1;
 }
+html{
+  scrollbar-gutter: stable;
+}
+
+/* --- Firefox --- */
+html {
+  scrollbar-color: var(--light-slate) transparent;
+}
+
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--light-slate);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  /* optional: creates a gap between thumb and track */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  scrollbar-color: var(--light-slate) transparent;
+}
 
 html,
 body {
@@ -56,13 +83,14 @@ body {
   
   counter-reset: section nav;
   -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
+    
 }
 
 body {
   color: var(--foreground);
   background: var(--navy);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
@@ -83,6 +111,8 @@ p{
   line-height: 1.6;
   color: var(--light-slate);
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   html {
