@@ -5,6 +5,8 @@ import styles from './Experience.module.css'
 import * as motion from "motion/react-client"
 import SectionHeading from '@/components/ui/SectionHeading'
 import { hover } from 'motion'
+import EntryAnimationGroup from '@/components/animations/EntryAnimationGroup'
+import EntryAnimationChild from '@/components/animations/EntryAnimationChild'
 
 type PartialDate = {
   month?: number;
@@ -103,47 +105,58 @@ export default function Experience()
   
   return (
     <Section id="experience" className={styles.section} fullHeight={false} >
-      <SectionHeading useCount={true}>Where I&apos;ve Worked</SectionHeading>
-      <div className={styles.content}>
-        <motion.div layoutRoot className={styles.buttonList} onMouseLeave={() => setHoveredNavId(null)}> 
-
-          
-          {jobDetails && 
-            jobDetails.map((job, i) => (
-                <button 
-                  key={i} 
-                  onMouseEnter={() => setHoveredNavId(job.id)} 
-                  onClick={() => setSelectedJobIndex(i)}
-                  className={selectedJobIndex === i ? styles.selected : ""}
-                  style={{
-                    color: hoveredNavId === job.id ? "var(--green)" : "",
-                  }}>
-                    {hoveredNavId === job.id && (
-                      <motion.div style={{zIndex: 1}} layoutId='hovered-background' className={styles.buttonBackground}></motion.div>
-                    )}
-                    <span className={styles.buttonText}>{job.company}</span>
-                    { selectedJobIndex === i && (
-                    <motion.div style={{ zIndex: 10 }} layoutId='selected-border' className=  {styles.selectedBorder}></motion.div>)
-                    }
-                </button>
-          ))}
-        </motion.div>
+      <EntryAnimationGroup childStagger={0.15} viewportStart={0.3}>
+        <EntryAnimationChild duration={0.6} startOffsetY={20}>
+          <SectionHeading useCount={true}>Where I&apos;ve Worked</SectionHeading>
+        </EntryAnimationChild>
         
-        <div className={styles.jobPanels}>
-          {jobDetails && jobDetails.map((job, i) => (
-            <div className={styles.jobPanel} key={i} hidden={selectedJobIndex !== i}>
-              <h3>{job.role} <span className={styles.greenTitle}>@ {job.company}</span> </h3>
-              <p className={styles.dateRange}>{getDateRange(job.dateStart, job.dateEnd)}</p>
-              <ul>
-                {job.details.map((detail, i) => {
-                  const key = `detailItem-${i}`;
-                  return <li key={key}>{detail}</li>
-                })}
-              </ul>
+        <EntryAnimationChild duration={0.6} startOffsetY={20}>
+
+          <div className={styles.content}>
+            <motion.div layoutRoot className={styles.buttonList} onMouseLeave={() => setHoveredNavId(null)}> 
+
+              
+              {jobDetails && 
+                jobDetails.map((job, i) => (
+                    <button 
+                      key={i} 
+                      onMouseEnter={() => setHoveredNavId(job.id)} 
+                      onClick={() => setSelectedJobIndex(i)}
+                      className={selectedJobIndex === i ? styles.selected : ""}
+                      style={{
+                        color: hoveredNavId === job.id ? "var(--green)" : "",
+                      }}>
+                        {hoveredNavId === job.id && (
+                          <motion.div style={{zIndex: 1}} layoutId='hovered-background' className={styles.buttonBackground}></motion.div>
+                        )}
+                        <span className={styles.buttonText}>{job.company}</span>
+                        { selectedJobIndex === i && (
+                        <motion.div style={{ zIndex: 10 }} layoutId='selected-border' className=  {styles.selectedBorder}></motion.div>)
+                        }
+                    </button>
+              ))}
+            </motion.div>
+            
+            <div className={styles.jobPanels}>
+              {jobDetails && jobDetails.map((job, i) => (
+                <div className={styles.jobPanel} key={i} hidden={selectedJobIndex !== i}>
+                  <h3>{job.role} <span className={styles.greenTitle}>@ {job.company}</span> </h3>
+                  <p className={styles.dateRange}>{getDateRange(job.dateStart, job.dateEnd)}</p>
+                  <ul>
+                    {job.details.map((detail, i) => {
+                      const key = `detailItem-${i}`;
+                      return <li key={key}>{detail}</li>
+                    })}
+                  </ul>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </EntryAnimationChild>
+        
+      </EntryAnimationGroup>
+      
+      
     </Section>
   )
 }

@@ -5,6 +5,7 @@
   object-fit: cover;
   position: relative;  
   overflow: hidden;
+
 }
 
 .imageOverlay {
@@ -16,6 +17,7 @@
   z-index: 2;
   overflow: hidden;
 }
+
 
 .image {
   z-index: 1;

@@ -4,6 +4,8 @@ import React from 'react'
 import styles from './OtherProjects.module.css'
 import { ProjectDetail } from '@/types/ProjectDetail'
 import ProjectCard from './ProjectCard'
+import EntryAnimationGroup from '@/components/animations/EntryAnimationGroup'
+import EntryAnimationChild from '@/components/animations/EntryAnimationChild'
 
 
 const projects: ProjectDetail[] = [
@@ -32,13 +34,23 @@ const projects: ProjectDetail[] = [
 export default function OtherProjects() {
   return (
     <Section fullHeight={false}>
-      <SectionHeading useCount ={false}>Other Noteworthy Projects</SectionHeading>
-      <p></p>
+      <EntryAnimationGroup viewportStart={0.3} childStagger={0.15}>
+        <EntryAnimationChild startOffsetY={30} duration={0.3}>
+          <SectionHeading useCount ={false}>Other Noteworthy Projects</SectionHeading>
+        </EntryAnimationChild>
+        
+        
+        
       <div className={styles.content}>
         {projects && projects.map((project, i) => (
-          <ProjectCard key={i} project={project} />
+          <EntryAnimationChild duration={0.3 } startOffsetY={20} key={i} >
+            <ProjectCard project={project} />
+            
+          </EntryAnimationChild>
         ))}
       </div>
+      </EntryAnimationGroup>
+
     </Section>
   )
 }

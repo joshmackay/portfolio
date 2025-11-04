@@ -6,6 +6,8 @@ import * as motion from "motion/react-client"
 import SectionHeading from '@/components/ui/SectionHeading'
 import { ProjectDetail } from '@/types/ProjectDetail'
 import FeaturedProject from './FeaturedProject'
+import EntryAnimationGroup from '@/components/animations/EntryAnimationGroup'
+import EntryAnimationChild from '@/components/animations/EntryAnimationChild'
 
 
 
@@ -68,12 +70,21 @@ export default function Work(){
 
   return (
     <Section id="work" className={styles.section} fullHeight={false} >
-      <SectionHeading useCount={true}>Some Things I&apos;ve Built</SectionHeading>
-      <div>
-        {projectDetails.map(project => {
-          return <FeaturedProject key={project.id} projectDetail={project} />
-        })}
-      </div>
+      <EntryAnimationGroup childStagger={0.15} viewportStart={0.3}>
+        <EntryAnimationChild duration={0.6} startOffsetY={20}>
+          <SectionHeading useCount={true}>Some Things I&apos;ve Built</SectionHeading>
+        </EntryAnimationChild>
+        
+          {projectDetails.map((project, i) => {
+            console.log(i % 2 === 0);
+            return <EntryAnimationChild className={styles.animationWrapper} key={i} duration={0.6} startOffsetY={20}>
+              <FeaturedProject key={project.id} projectDetail={project} isOdd={i % 2 === 0} />
+            </EntryAnimationChild>
+            })}
+        
+        
+      </EntryAnimationGroup>
+      
     </Section>
   )
 }

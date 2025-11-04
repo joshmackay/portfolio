@@ -1,21 +1,15 @@
 import React from 'react'
 import styles from './LoadingScreen.module.css'
 import IconLogoDraw from '@/components/Logo/LogoDraw'
-
+import { durationOutline, durationLetter, durationPause, durationShrink, totalLoaderTime } from '@/utils'
 type Props = {
   handleIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const durationOutline: number = 1.2;
-const durationLetter: number = 1;
-const durationShrink: number = 0.3;
-const durationPause: number = 0.3;
-const totalTime: number = (durationLetter + durationOutline + durationPause + durationShrink) * 1000;
-
 export default function LoadingScreen({ handleIsLoading }: Props) {
   
   React.useEffect(() => {
-    window.setTimeout(() => handleIsLoading(false), totalTime)
+    window.setTimeout(() => handleIsLoading(false), totalLoaderTime)
   }, []);
   
   return (

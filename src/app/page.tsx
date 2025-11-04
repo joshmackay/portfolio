@@ -13,7 +13,12 @@ import Footer from "@/sections/Footer/Footer";
 import { MenuOpenContext } from "@/context/MenuOpenProvider";
 import React from "react";
 import LoadingScreen from "@/sections/LoadingScreen/LoadingScreen";
-
+import
+  {
+    CSSTransition,
+    TransitionGroup,
+  } from 'react-transition-group';
+  
 export default function Home() {
   
   const [isLoading, setIsLoading] = React.useState(true);

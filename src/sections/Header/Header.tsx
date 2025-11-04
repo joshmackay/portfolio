@@ -7,6 +7,8 @@ import Hex from '@/components/Logo/Hex'
 import {motion} from 'motion/react'
 import { Menu, X } from 'react-feather'
 import { MenuOpenContext } from '@/context/MenuOpenProvider'
+import EntryAnimationGroup from '@/components/animations/EntryAnimationGroup'
+import EntryAnimationChild from '@/components/animations/EntryAnimationChild'
 
 export default function Header() {
   
@@ -31,27 +33,37 @@ export default function Header() {
   
   return (
     <>
+    <EntryAnimationGroup  viewportStart={0} childStagger={0.15}>
       <header  className={styles.header}>
-        <div onClick={() => window.location.href = "/"} className={styles.logoContainer}>
-          <Hex className={styles.hex} />
+        <EntryAnimationChild  startOffsetY={-20} duration={0.2}>
+          <div onClick={() => window.location.href = "/"} className={styles.logoContainer}>
+            <Hex className={styles.hex} />
+            
+            <motion.div className={styles.animateLogoWrapper}
+            whileHover={{ x: -4, y: -4 }}>
+              <Logo className={styles.logo} />
+            </motion.div>
+            
+          </div>
           
-          <motion.div className={styles.animateLogoWrapper}
-          whileHover={{ x: -4, y: -4 }}>
-            <Logo className={styles.logo} />
-          </motion.div>
+        </EntryAnimationChild>
+        
+        <EntryAnimationChild duration={0.2} startOffsetY={-20}>
+          <Nav className={styles.nav} />
+          <aside className={`${styles.mobileMenu} ${menuOpen ? styles.open : styles.closed}`}>
+            <Nav className={styles.mobileNav} />
+          </aside>
+          <Menu 
+            onClick={() => setMenuOpen(true)} 
+            className={`${styles.menuButton} ${menuOpen ? styles.closed : styles.open}`}   />
+          <X 
+            onClick={() => setMenuOpen(false)} 
+            className={`${styles.closeButton} ${menuOpen ? styles.open : styles.closed}`}/>
           
-        </div>
-        <Nav className={styles.nav} />
-        <aside className={`${styles.mobileMenu} ${menuOpen ? styles.open : styles.closed}`}>
-          <Nav className={styles.mobileNav} />
-        </aside>
-        <Menu 
-          onClick={() => setMenuOpen(true)} 
-          className={`${styles.menuButton} ${menuOpen ? styles.closed : styles.open}`}   />
-        <X 
-          onClick={() => setMenuOpen(false)} 
-          className={`${styles.closeButton} ${menuOpen ? styles.open : styles.closed}`}/>
+        </EntryAnimationChild>
       </header>
+      
+    </EntryAnimationGroup>
     </>
   )
 }
