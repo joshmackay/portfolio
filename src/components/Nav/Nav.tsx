@@ -16,7 +16,7 @@ export default function Nav({className} : Props) {
         <li><a href={'#work'}>Work</a></li>
         <li><a href={'#contact'}>Contact</a></li>
       </ol>
-      <Button onClick={() => window.open('/resume.pdf', '_blank')} openNewPage={false} size={'small'}>Resume</Button>
+      <Button  onClick={() => window.open('/resume.pdf', '_blank')} openNewPage={false} size={'small'}>Resume</Button>
     </nav>
   )
 }
