@@ -15,12 +15,18 @@ export default function ProjectCard({project: {id, name, description, tools, lin
         <div className={styles.iconContainer}>
           <Folder className={styles.folderIcon} />
           <div className={styles.rightIcons}>
-            <a href={links?.github} target='_blank'>
+            <motion.a
+            whileHover={{color: "var(--green)", y: -4}}
+            transition={{type:"tween"}}
+            href={links?.github} target='_blank'>
               <GitHub className={styles.githubIcon} />
-            </a>
-            <a href={links?.site} target='_blank'>
+            </motion.a>
+            <motion.a 
+              whileHover={{ color: "var(--green)", y: -4 }}
+              transition={{ type: "tween" }}
+            href={links?.site} target='_blank'>
               <ExternalLink className={styles.linkIcon} />
-            </a>
+            </motion.a>
           </div>
         </div>
         

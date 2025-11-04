@@ -10,10 +10,13 @@ import Experience from "@/sections/Experience/Experience";
 import OtherProjects from "@/sections/OtherProjects/OtherProjects";
 import Contact from "@/sections/Contact/Contact";
 import Footer from "@/sections/Footer/Footer";
-import MenuOpenProvider, { MenuOpenContext } from "@/context/MenuOpenProvider";
-import React, { useContext } from "react";
+import { MenuOpenContext } from "@/context/MenuOpenProvider";
+import React from "react";
+import LoadingScreen from "@/sections/LoadingScreen/LoadingScreen";
 
 export default function Home() {
+  
+  const [isLoading, setIsLoading] = React.useState(true);
   
   const context = React.useContext(MenuOpenContext);
   if (!context)
@@ -24,21 +27,27 @@ export default function Home() {
   
   return (
       <div className={`${styles.page} `}>
-        <Header />
-        <SocialsWidget  side={"left"} />
-        <EmailWidget  side="right" />
-      <main className={`${styles.main} `}>
-        <div className={`${menuOpen ? styles.blur : undefined}`}>
-          <Hero />
-          <About />
-          <Experience />
-          <Work />
-          <OtherProjects />
-          <Contact />
-          
-        </div>
-        </main>
-        <Footer></Footer>
+        {isLoading ? <LoadingScreen handleIsLoading={setIsLoading}  /> : 
+        (
+          <>
+            <Header />
+            <SocialsWidget  side={"left"} />
+            <EmailWidget  side="right" />
+            <main className={`${styles.main} `}>
+              <div className={`${menuOpen ? styles.blur : undefined}`}>
+                <Hero />
+                <About />
+                <Experience />
+                <Work />
+                <OtherProjects />
+                <Contact />
+                
+              </div>
+            </main>
+            <Footer></Footer>
+          </>
+        )
+        }
       </div>
   );
 }

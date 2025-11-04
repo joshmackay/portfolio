@@ -14,7 +14,7 @@ const projectDetails: ProjectDetail[] = [
     id: 1,
     name: "This Portfolio",
     image: "/portfolio-web.png",
-    description: "This very portfolio you are viewing. I wanted to build something simple with React firstly to start getting back into using React, but to also create a place for you to get to know me.",
+    description: "This very portfolio you are viewing. I wanted to build something simple with React firstly to start getting back into using React, but to also create a place for you to get to know me.  This portfolio is a prior version of Brittany Chiangs portfolio, that I rebuilt from scratch.",
     tools: [
       "React",
       "TypeScript",

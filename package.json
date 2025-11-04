@@ -9,13 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/react-transition-group": "^4.4.12",
     "feather-icons": "^4.29.2",
     "feather-icons-react": "^0.9.0",
     "motion": "^12.23.24",
     "next": "16.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-feather": "^2.0.10"
+    "react-feather": "^2.0.10",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@types/node": "^20",

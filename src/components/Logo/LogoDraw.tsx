@@ -1,0 +1,41 @@
+import { motion } from 'motion/react';
+import React from 'react';
+
+type Props = {
+  className?: string;
+  durationOutline: number;
+  durationLetter: number;
+  durationPause: number;
+  durationShrink: number;
+}
+
+export default function IconLogoDraw({className, durationOutline, durationLetter, durationPause, durationShrink}: Props) {
+  return (
+    <motion.svg 
+      initial={{scale: 1}}
+      animate={{scale: 0}}
+      transition={{ delay: (durationOutline + durationLetter + durationPause), duration: durationShrink}}
+      
+      className={className}  viewBox="0 0 96 104" xmlns="http://www.w3.org/2000/svg">
+
+      <motion.path
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1.01 }}
+        transition={{ duration: durationOutline, ease: [0.77, 0, 0.175, 1] }}
+        d="M46.75 3.6084C47.5235 3.16183 48.4765 3.16183 49.25 3.6084L85.8193 24.7217C86.5928 25.1683 87.0693 25.9936 87.0693 26.8867V69.1133C87.0693 70.0064 86.5928 70.8317 85.8193 71.2783L49.25 92.3916C48.4765 92.8382 47.5235 92.8382 46.75 92.3916L10.1807 71.2783C9.40722 70.8317 8.93068 70.0064 8.93066 69.1133V26.8867C8.93067 25.9936 9.40722 25.1683 10.1807 24.7217L46.75 3.6084Z" fill="none" stroke="currentColor" strokeWidth="5" shapeRendering="crispEdges" />
+
+      <motion.path 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: durationOutline, duration: durationLetter, ease: "easeInOut" }}
+        d="M58.6045 23.8496V57.2725C58.6045 60.2601 58.056 62.8089 56.9512 64.9111C55.847 67.0119 54.2882 68.6098 52.2764 69.7002C50.2657 70.79 47.8987 71.332 45.1816 71.332C42.618 71.332 40.3308 70.8664 38.3232 69.9316L38.3223 69.9307C36.3142 68.9803 34.7315 67.6296 33.5791 65.8779C32.4244 64.1227 31.8497 62.0401 31.8496 59.6367V59.4863H37.6953V59.6367C37.6954 60.9279 38.0141 62.0489 38.6465 63.0059L38.9014 63.3516C39.5225 64.1344 40.3261 64.7604 41.3145 65.2285C42.4429 65.763 43.731 66.0322 45.1816 66.0322C46.7817 66.0322 48.1329 65.6953 49.2412 65.0303C50.3488 64.3657 51.193 63.3904 51.7725 62.0977V62.0967C52.3673 60.788 52.668 59.1816 52.668 57.2725V23.8496H58.6045Z" fill="currentColor"/>
+      <defs>
+      </defs>
+    </motion.svg>
+
+
+
+)
+
+}
+
