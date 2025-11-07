@@ -51,7 +51,6 @@ h6 {
   line-height: 1.1;
 }
 html{
-  scrollbar-gutter: stable;
   scroll-behavior: smooth;
 }
 
@@ -68,8 +67,6 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background-color: var(--light-slate);
   border-radius: 5px;
-  border: 2px solid transparent;
-  /* optional: creates a gap between thumb and track */
 }
 
 html::-webkit-scrollbar,
