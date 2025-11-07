@@ -4,7 +4,7 @@ import {GitHub, Icon, Linkedin} from 'react-feather'
 import styles from './EmailWidget.module.css'
 import ElementAnimation from './ElementAnimation';
 
-const email: string = 'joshwademackay@gmail.com';
+const email: string = 'joshwmackay@gmail.com';
 
 type Props = {
   side: "left" | "right";
